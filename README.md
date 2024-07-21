@@ -371,6 +371,10 @@ char convertedChar = (char)66;
 Console.WriteLine($"The character with ASCII value 66 is '{convertedChar}'");  // 'B'
 ```
 
+### Practice: Create a simple console C# program :
+1. user input two string finding and replacing, search the string in our words, then replace it.
+2. user input string and use all the string manipulation function and display it.
+
 ## 11. Resources
 Here are some additional resources to further your learning:
 
