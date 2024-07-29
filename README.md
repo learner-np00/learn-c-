@@ -371,6 +371,332 @@ char convertedChar = (char)66;
 Console.WriteLine($"The character with ASCII value 66 is '{convertedChar}'");  // 'B'
 ```
 
+## Arrays and Variables
+### Single-dimensional Arrays
+Definition: A single-dimensional array is a linear collection of elements of the same type, accessible by an index.
+
+```csharp
+int[] numbers = new int[5]; // Declaration and initialization
+numbers[0] = 1; // Assigning values
+numbers[1] = 2;
+
+int[] initializedNumbers = { 1, 2, 3, 4, 5 }; // Declaration with initialization
+Console.WriteLine(initializedNumbers[2]); // Output: 3
+```
+
+### Multi-dimensional Arrays
+Definition: Multi-dimensional arrays are arrays that have more than one dimension, like a grid or matrix.
+
+```csharp
+int[,] matrix = new int[3, 3]; // 3x3 matrix
+matrix[0, 0] = 1; // Assigning values
+matrix[1, 1] = 2;
+
+int[,] initializedMatrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }; // Declaration with initialization
+Console.WriteLine(initializedMatrix[1, 1]); // Output: 5
+```
+
+### Jagged Arrays
+Definition: A jagged array is an array of arrays, where each sub-array can have different lengths.
+
+```csharp
+int[][] jaggedArray = new int[3][]; // Declaration
+jaggedArray[0] = new int[5]; // Initialization
+jaggedArray[1] = new int[3];
+
+int[][] initializedJaggedArray = new int[][]
+{
+    new int[] { 1, 2 },
+    new int[] { 3, 4, 5 },
+    new int[] { 6, 7, 8, 9 }
+}; // Declaration with initialization
+Console.WriteLine(initializedJaggedArray[2][3]); // Output: 9
+```
+
+### Variables and Parameters
+#### Variable Declaration and Initialization
+Definition: Variables are used to store data in a program. Declaration specifies the type and name, while initialization assigns a value.
+
+```csharp
+int x; // Declaration
+x = 10; // Initialization
+
+int y = 20; // Declaration and initialization
+Console.WriteLine(x); // Output: 10
+Console.WriteLine(y); // Output: 20
+```
+
+#### Value and Reference Types
+Definition: Value types store data directly, whereas reference types store a reference to the data's memory location.
+
+```csharp
+
+int valueType = 5; // Value type
+string referenceType = "Hello"; // Reference type
+
+Console.WriteLine(valueType); // Output: 5
+Console.WriteLine(referenceType); // Output: Hello
+```
+
+#### Passing Parameters
+Definition: Parameters can be passed to methods by value, by reference, or using out parameters.
+
+#### By Value:
+
+```csharp
+
+void PassByValue(int param)
+{
+    param = 10; // Changes won't affect the original variable
+}
+
+int number = 5;
+PassByValue(number);
+Console.WriteLine(number); // Output: 5
+```
+
+#### By Reference:
+
+```csharp
+
+void PassByReference(ref int param)
+{
+    param = 10; // Changes will affect the original variable
+}
+
+int number = 5;
+PassByReference(ref number);
+Console.WriteLine(number); // Output: 10
+```
+
+#### Out Parameters:
+
+```csharp
+
+void PassByOut(out int param)
+{
+    param = 10; // Must be assigned inside the method
+}
+
+int number;
+PassByOut(out number);
+Console.WriteLine(number); // Output: 10
+```
+
+## Control Flow
+### Declaration Statements
+Definition: Statements that declare variables and constants.
+
+```csharp
+int x = 10; // Variable declaration
+const int y = 20; // Constant declaration
+Console.WriteLine(x); // Output: 10
+Console.WriteLine(y); // Output: 20
+```
+
+### Expression Statements
+Definition: Statements that perform an action, such as assignments or method calls.
+
+```csharp
+x = x + 1; // Assignment
+Console.WriteLine(x); // Output: 11
+```
+
+### Selection Statements
+#### If Statement:
+Definition: Executes code based on a condition.
+
+```csharp
+if (x > 5)
+{
+    Console.WriteLine("x is greater than 5");
+}
+else
+{
+    Console.WriteLine("x is 5 or less");
+}
+// Output: x is greater than 5
+```
+
+#### Switch Statement:
+Definition: Selects one of many code blocks to execute.
+
+```csharp
+switch (x)
+{
+    case 1:
+        Console.WriteLine("x is 1");
+        break;
+    case 2:
+        Console.WriteLine("x is 2");
+        break;
+    default:
+        Console.WriteLine("x is not 1 or 2");
+        break;
+}
+// Output: x is not 1 or 2
+```
+
+### Iteration Statements
+#### For Loop:
+Definition: Repeats a block of code a specified number of times.
+
+```csharp
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+// Output: 0 1 2 3 4
+```
+
+#### Foreach Loop:
+Definition: Iterates over each element in a collection.
+
+```csharp
+int[] numbers = { 1, 2, 3, 4, 5 };
+foreach (int num in numbers)
+{
+    Console.WriteLine(num);
+}
+// Output: 1 2 3 4 5
+```
+
+#### While Loop:
+Definition: Repeats a block of code as long as a condition is true.
+
+```csharp
+int i = 0;
+while (i < 5)
+{
+    Console.WriteLine(i);
+    i++;
+}
+// Output: 0 1 2 3 4
+```
+
+#### Do-While Loop:
+Definition: Like the while loop, but checks the condition after executing the block of code.
+
+```csharp
+int j = 0;
+do
+{
+    Console.WriteLine(j);
+    j++;
+} while (j < 5);
+// Output: 0 1 2 3 4
+```
+
+### Jump Statements
+#### Break:
+Definition: Exits the nearest enclosing loop or switch statement.
+
+```csharp
+for (int i = 0; i < 10; i++)
+{
+    if (i == 5)
+        break; // Exit loop
+    Console.WriteLine(i);
+}
+// Output: 0 1 2 3 4
+```
+
+#### Continue:
+Definition: Skips the rest of the current loop iteration and proceeds to the next iteration.
+
+```csharp
+for (int i = 0; i < 10; i++)
+{
+    if (i == 5)
+        continue; // Skip the rest of the loop iteration
+    Console.WriteLine(i);
+}
+// Output: 0 1 2 3 4 6 7 8 9
+```
+
+#### Return:
+Definition: Exits a method and optionally returns a value.
+
+```csharp
+int Add(int a, int b)
+{
+    return a + b; // Return result
+}
+
+int result = Add(3, 4);
+Console.WriteLine(result); // Output: 7
+```
+
+#### Goto:
+Definition: Transfers control to a labeled statement.
+
+```csharp
+Copy code
+goto Label;
+Console.WriteLine("This won't execute");
+
+Label:
+Console.WriteLine("This will execute");
+// Output: This will execute
+```
+
+## Namespaces
+### Creating and Using Namespaces
+Definition: A namespace is a container for classes and other types, providing a way to organize code.
+
+```csharp
+namespace MyNamespace
+{
+    class MyClass
+    {
+        public void MyMethod()
+        {
+            Console.WriteLine("Hello from MyNamespace.MyClass");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        MyNamespace.MyClass myClass = new MyNamespace.MyClass();
+        myClass.MyMethod();
+    }
+}
+// Output: Hello from MyNamespace.MyClass
+```
+
+### Nested Namespaces
+Definition: Namespaces within other namespaces.
+
+```csharp
+namespace OuterNamespace
+{
+    namespace InnerNamespace
+    {
+        class InnerClass
+        {
+            public void InnerMethod()
+            {
+                Console.WriteLine("Hello from OuterNamespace.InnerNamespace.InnerClass");
+            }
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        OuterNamespace.InnerNamespace.InnerClass innerClass = new OuterNamespace.InnerNamespace.InnerClass();
+        innerClass.InnerMethod();
+    }
+}
+// Output: Hello from OuterNamespace.InnerNamespace.InnerClass
+```
+
+
 ### Practice: Create a simple console C# program :
 1. user input two string finding and replacing, search the string in our words, then replace it.
 2. user input string and use all the string manipulation function and display it.
